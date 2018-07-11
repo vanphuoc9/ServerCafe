@@ -1,0 +1,275 @@
+#wrapper{
+	width: 100%;
+	/* background-color: #f8f8f8; */
+/* 	display: flex; */
+
+/* 	border: 1px solid red; */
+/* 	padding: 5px; */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	transition: all 0.3s;
+	background-color:  #F8F8FF;
+
+
+  
+}
+/* img{
+	width: 100%;
+    height: auto;
+} */
+a:hover{
+ text-decoration: none;
+}
+
+
+/*header*/
+#header nav{
+	background: #FFFFFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-transform: uppercase; 
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+#sidebarCollapse{
+	color: #333;
+}
+/*sidebar/ menu*/
+#sidebar{
+	width: 250px;
+	height: 100%;
+	margin-top: 60px;
+	z-index: 3;
+	position: fixed;
+	padding-top: 10px;
+	overflow-x: hidden; 
+	transition: all 0.3s;
+	background-color: #7386D5;
+	-webkit-overflow-scrolling:touch;
+	box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+#sidebar a{
+
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+ 
+
+ 
+}
+#sidebar hr{
+	margin-top: 0;
+}
+#sidebar a:hover {
+    color: #f1f1f1;
+}
+#sidebar ul li a {
+    text-align: left;
+    padding: 10px;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+.sidebar-header{
+	/* border: 1px solid red; */
+
+	padding-left: 20px;
+	padding-top: 30px;
+	padding-bottom: 40px;
+
+	background-color: #6d7fcc;
+
+}
+
+
+.sidebar-icon{
+	padding: 10px;
+}
+.sidebar-img{
+	/* border: 1px solid red; */
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
+/*components*/
+.components li ul{
+	padding-left: 30px;
+}
+/* .components li ul li{
+	border-bottom: 1px solid white;
+} */
+.components li a{
+	border-bottom: 1px solid white;
+}
+
+
+
+/*active sidebar*/
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    transition: all 0.3s;
+
+}
+
+#sidebar.active .sidebar-header,
+#sidebar.active hr{
+	display: none;
+}
+
+/* #sidebar.active .components a i{
+	display: block;
+}
+ */
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+#sidebar.active ul li a i {
+    margin-right:  0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+
+
+
+/*content*/
+#content{
+	margin-left: 260px;
+	margin-top: 75px;
+	width: 79.5%;
+	padding-bottom: 10%;
+	padding-top: 10px;
+	background-color:#fff;
+	-webkit-box-shadow::0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	-moz-box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+.header-content {
+	padding: 10px;
+	position: relative;
+
+}
+.header-content .glyphicon {
+	font-size: 50px;
+	color: #fff;
+
+}
+.header-content a h4 {
+	color: #fff;
+}
+.header-content:hover{
+	transform: translateY(2px);
+}
+.messages{
+	background-color: #FD451C;
+}
+.messages .badge{
+	background-color: #FD451C;
+}
+
+
+.view{
+	background-color: #628BFE;
+}
+.view .badge{
+	background-color: #628BFE;
+}
+.share{
+	background-color: #76B675;
+}
+.share .badge{
+	background-color: #76B675;
+}
+.user{
+	background-color: #F78329;
+}
+.user .badge{
+	background-color: #F78329;
+}
+.badge{
+
+	font-size: 30px;
+	margin-left: 70px;
+
+}
+
+.container-fuild{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+/*page-header*/
+.page-header{
+	position: relative;
+	height: 120px
+}
+/*btn-them*/
+.btn-them{
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	padding: 10px 40px;
+	font-size: 16px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #3366FF;
+	border: none;
+	border-radius: 5px;
+	transition: all 0.2s;
+
+}
+.btn-them:hover {
+  	background-color: #3366FF;
+ 	transform: translateY(2px);
+}
+
+
+/*active content*/
+#content.active{
+	margin-left: 90px;
+	width: 92.5%;
+	
+}
+
+/*form-search*/
+.form-search{
+	width: 300px;
+	display: flex;
+}
+
+/*input search*/
+#myInput{
+	width: 130px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 2px solid #ccc;
+	font-size: 16px;
+	background-color: white;
+	background-image: url('Search.png');
+	background-repeat: no-repeat;
+	background-position: 10px 5px;
+	padding:  12px 20px 12px 40px;
+	-webkit-transitio: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+	margin-bottom: 15px;
+
+}
+#myInput:focus{
+	width: 50%;
+}
