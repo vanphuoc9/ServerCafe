@@ -15,13 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('trangchu',function(){
-	return view('admin/layout/index');
-});
+// Route::get('trangchu',function(){
+// 	return view('admin/layout/index');
+// });
 
-Route::get('loaimon',function(){
-	return view('admin/loaimon/danhsach');
-});
+// Route::get('loaimon',function(){
+// 	return view('admin/loaimon/danhsach');
+// });
 
 
 // group admin
@@ -32,23 +32,38 @@ Route::group(['prefix'=>'admin'],function(){
 	Route::group(['prefix'=>'loaimon'],function(){
 		/// danh sach
 		Route::get('danhsach','LoaiMonController@getDanhSach');
-
 		// // post them
 		Route::post('them','LoaiMonController@postThem');
-
-		// // // post sửa
-
-		// Route::get('sua/{id}','LoaiMonController@getSua');
-
-		// Route::post('sua/{id}','LoaiMonController@postSua');
-
+		//sửa
 		Route::get('sua/{id}','LoaiMonController@getSua');
 		Route::post('sua/{id}','LoaiMonController@postSua');
-
-
-
 		// xóa
 		Route::get('xoa/{id}','LoaiMonController@getXoa');
+
+	});
+
+	//// MON
+	Route::group(['prefix'=>'mon'],function(){
+		/// danh sach
+		Route::get('danhsach','MonController@getDanhSach');
+
+		// // // post them
+		Route::get('them','MonController@getThem');
+		Route::post('them','MonController@postThem');
+
+		// // // // post sửa
+
+		// // Route::get('sua/{id}','LoaiMonController@getSua');
+
+		// // Route::post('sua/{id}','LoaiMonController@postSua');
+
+		// Route::get('sua/{id}','MonController@getSua');
+		// Route::post('sua/{id}','MonController@postSua');
+
+
+
+		// // xóa
+		// Route::get('xoa/{id}','MonController@getXoa');
 
 	});
 });

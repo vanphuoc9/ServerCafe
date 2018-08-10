@@ -37,7 +37,8 @@
 
 
 	  <!-- jQuery -->
-    <script src="admin_assets/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="admin_assets/jquery/dist/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="admin_assets/bootstrap/dist/js/bootstrap.min.js"></script>

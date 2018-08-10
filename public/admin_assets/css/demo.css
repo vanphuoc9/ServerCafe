@@ -273,3 +273,8 @@ a:hover{
 #myInput:focus{
 	width: 50%;
 }
+
+
+#SUCCESS,#ERROR_COPY{
+ 	display: none;
+}

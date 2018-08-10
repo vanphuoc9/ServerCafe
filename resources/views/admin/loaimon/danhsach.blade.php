@@ -4,54 +4,7 @@
 	
 	<div id="content">
 			<div class="container-fluid">
-				<div id="header-content">
-					  <!-- Header -->
-					<div class="row">
-						<div class="col-md-3">
-							<div class="header-content messages">
-								<a href="#">
-									<span class="glyphicon glyphicon-comment "> <span class="badge">3</span></span>
-									<h4>Messages </h4>
-								</a>
-							</div>
-							
-						
-						</div>
-
-						<div class="col-md-3">
-							<div class="header-content view">
-								<a href="#">
-									<span class="glyphicon glyphicon-comment"> <span class="badge">3</span></span>
-									<h4>Views </h4>
-								</a>
-							</div>
-							
-						
-						</div>
-						<div class="col-md-3">
-							<div class="header-content share">
-								<a href="#">
-									<span class="glyphicon glyphicon-comment"> <span class="badge">3</span></span>
-									<h4>Shares </h4>
-								</a>
-							</div>
-							
-						
-						</div>
-						<div class="col-md-3">
-							<div class="header-content user">
-								<a href="#">
-									<span class="glyphicon glyphicon-comment"> <span class="badge">3</span></span>
-									<h4>Users </h4>
-								</a>
-							</div>
-							
-						
-						</div>
-
 				
-					</div>
-				</div>
 				
 				<div class="row">
 					<div class="col-lg-12">
@@ -92,7 +45,7 @@
 				</div>
 				
 				 @if(session('thongbao'))
-                   <div class="alert alert-success" id="SUCCESS"  style="display: none;">
+                   <div class="alert alert-success" id="SUCCESS">
                       {{session('thongbao')}}
                        
                    </div>
@@ -101,8 +54,8 @@
 
               @if(count($errors) > 0)
                  <div class="alert alert-danger" id="ERROR_COPY"
-                 style="display: none;">
-                 
+                >
+            
                    <!--  in ra các lỗi -->
                      @foreach($errors->all() as $err)
                         {{$err}} <br>
@@ -254,7 +207,7 @@
 	</script>
 
 
-	/* Thông báo lỗi, thông báo thành công */
+	
 	<script>
 		var has_errors = {{$errors->count() > 0 ? 'true':'false'}};
 		if(has_errors){
@@ -264,7 +217,11 @@
 			  html: jQuery("#ERROR_COPY").html(),
 			  showCloseButton:true,
 			 
-			});
+			}).then(function(){
+				window.location.reload(window.location.href);
+				});
+			
+		
 
 		}
 
@@ -276,16 +233,19 @@
 			  html: jQuery("#SUCCESS").html(),
 			  showCloseButton:true,
 			 
-			});
-
-			success = false;
+			}).then(function(){
+				window.location.reload(window.location.href);
+				});
+			
 		}
+
+
 
 	
 	</script>
 
 
-/*     Xóa */
+
 	<script>
 	  $(document).on('click', '#btnXoa', function (e) {
 		    e.preventDefault();
@@ -315,7 +275,7 @@
 	</script>
 
 
-/* 	Sửa */
+
 	<script>
 	  $(document).on('click', '#btnSua', function (e) {
 		    e.preventDefault();
