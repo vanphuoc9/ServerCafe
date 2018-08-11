@@ -153,7 +153,7 @@
 	                     
 	               </div> <!-- Modal -->
 
-			</div>
+			</div> <!-- container-fluid -->
 	</div>	<!-- content -->
 
 

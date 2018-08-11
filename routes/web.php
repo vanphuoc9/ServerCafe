@@ -53,17 +53,13 @@ Route::group(['prefix'=>'admin'],function(){
 
 		// // // // post sửa
 
-		// // Route::get('sua/{id}','LoaiMonController@getSua');
-
-		// // Route::post('sua/{id}','LoaiMonController@postSua');
-
-		// Route::get('sua/{id}','MonController@getSua');
-		// Route::post('sua/{id}','MonController@postSua');
+		Route::get('sua/{id}','MonController@getSua');
+		Route::post('sua/{id}','MonController@postSua');
 
 
 
-		// // xóa
-		// Route::get('xoa/{id}','MonController@getXoa');
+		// xóa
+		Route::get('xoa/{id}','MonController@getXoa');
 
 	});
 });

@@ -127,14 +127,72 @@
 	               </div> <!-- Modal -->
 				
 
-			
+				  <!-- Modal Update -->
+	             <div class="modal fade" id="myModalSua" role="dialog">
+	                  <div class="modal-dialog">
+	                        
+	                        <!-- Modal content-->
+	                     <div class="modal-content">
+	                        <div class="modal-header">
+	                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                           <h4><span class="glyphicon glyphicon-lock"></span>Sửa</h4>
+	                       
+	                     
+	                        </div> <!-- /modal-header -->
+	                        <div class="modal-body">
+	                           <form class="ValidatorFrom" action="" role="form" data-toggle="validator" method="POST" id="updateFrom" >
+	                              <div class="form-group">
+	                                 <label for="Ten"><span class="glyphicon glyphicon-user"></span> Tên loại món</label>
+	                                 <input type="text" class="form-control" placeholder="Tên loại món..." name="Ten" value="" id="Ten">
+	                              </div>
+	                              <div class="form-group">
+	                                 <label for="LinkHinh"><span class="glyphicon glyphicon-phone"></span> Link hình</label>
+	                                 <input type="text" class="form-control" placeholder="Link hình..." name="LinkHinh" value="" id="LinkHinh">
+	                              </div>
+	                              <div class="form-group">
+	                                <label>Mô tả</label>
+	                                <textarea id="MoTa" name="MoTa" class="form-control"  rows="5" ></textarea>
+	                              </div>
+	                               <div class="form-group">
+	                                 <label for="Ten"><span class="glyphicon glyphicon-user"></span>Đơn giá</label>
+	                                 <input type="number" class="form-control" placeholder="Đơn giá" name="DonGia" id="DonGia">
+	                              </div>
+	                              <div class="form-group">
+	                                <label>Loại món ăn</label>
+	                                <select class="form-control" name="LoaiMonAn" required id="selectMonSua">
+	                                
+	                                </select>
+	                            </div>
+	                              <button type="submit" class="btn btn-block">Sửa
+	                                  <span class="glyphicon glyphicon-ok"></span></button>
+	                               <input type="hidden" name="_token" value="{{csrf_token()}}">
+	                           </form>
+	                        </div> <!-- /modal-body -->
+
+	                        <div class="modal-footer">
+	                           <button class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+	                              <span class="glyphicon glyphicon-remove"></span>
+	                                 Trờ về
+	                           </button>
+	                           <p>Need <a href="#">help?</a></p>
+	                        </div> <!-- /modal-footer -->
+
+	                     </div> <!-- /Modal content-->
+
+
+	                  </div> <!-- /modal-dialog -->
+	                     
+	               </div> <!-- Modal -->
+
+				</div> <!-- container-fluid -->
+	</div>	<!-- content -->	
 	
 
 @endsection        
 
 
 @section('script')
-   /* kiểm tra điều kiện trong form */
+  
 	<script>
 		$(document).ready(function(){
 			$('.ValidatorFrom').bootstrapValidator({
@@ -203,6 +261,43 @@
 
 	</script>
 
+
+	<script>
+		var has_errors = {{$errors->count() > 0 ? 'true':'false'}};
+		if(has_errors){
+			swal({
+			  type: 'error',
+			  title: 'Lỗi',
+			  html: jQuery("#ERROR_COPY").html(),
+			  showCloseButton:true,
+			 
+			}).then(function(){
+				window.location.reload(window.location.href);
+				});
+			
+		
+
+		}
+
+		var success = {{session('thongbao') ? 'true':'false'}};
+		if(success){
+			swal({
+			  type: 'success',
+			  title: 'Thành công',
+			  html: jQuery("#SUCCESS").html(),
+			  showCloseButton:true,
+			 
+			}).then(function(){
+				window.location.reload(window.location.href);
+				});
+			
+		}
+
+
+
+	
+	</script>
+
 	<script>
 	  $(document).on('click', '#btnThem', function (e) {
 		    e.preventDefault();
@@ -210,8 +305,8 @@
 		    $.get("admin/mon/them",function(data){
 		    	 /*    alert(id);*/
 		    	 select = document.getElementById('selectMon');
-		
-		    	     console.log(data);  
+		    	 $('#selectMon').html('');
+		    	     // console.log(data);  
 				for (var i in data){
 					// console.log(data[i].MALOAI);
 					// console.log(data[i].TENLOAI);
@@ -222,16 +317,80 @@
 					$('#myModalThem').modal('show');
 					
 				}
+		    });
 
-			// 		$('#updateFrom').attr("action","admin/loaimon/sua/"+id);
-
-			// /* 		alert($("#updateFrom").attr("action")); */
-
-			// 		$('#updateFrom').find('#Ten').val(data.TENLOAI);
-			// 		$('#updateFrom').find('#LinkHinh').val(data.HINH);
+		});
 
 
-		 //    		$('#myModalSua').modal('show');
+
+
+	</script>
+
+	<script>
+	  $(document).on('click', '#btnXoa', function (e) {
+		    e.preventDefault();
+		    var id = $(this).data('id');
+			Swal({
+			  title: 'Bạn đã chắc?',
+			  text: 'Bạn sẽ không thể khôi phục lại dữ liệu!',
+			  type: 'warning',
+			  showCancelButton: true,
+			  confirmButtonText: 'Ok, Xóa!',
+			  cancelButtonText: 'Không, giữ lại'
+			}).then((result) => {
+				  if (result.value) {		
+					window.location.href = "admin/mon/xoa/" + id;            		
+				  } else if (result.dismiss === Swal.DismissReason.cancel) {
+				    Swal(
+				      'Hủy',
+				      'Dữ liệu đã an toàn :)',
+				      'error'
+				    )
+				  }
+			});
+
+		});
+
+
+	</script>
+
+
+
+	<script>
+	  $(document).on('click', '#btnSua', function (e) {
+		    e.preventDefault();
+		    var id = $(this).data('id');
+		   /*      alert(id); */
+		    $.get("admin/mon/sua/"+id,function(data){
+		    	 /*    alert(id);*/
+		    	     // console.log(data);  
+					
+					$('#updateFrom').attr("action","admin/mon/sua/"+id);
+					$('#updateFrom').find('#Ten').val(data.TEN);
+					$('#updateFrom').find('#LinkHinh').val(data.HINH);
+					$('#updateFrom').find('#MoTa').val(data.MOTA);
+					$('#updateFrom').find('#DonGia').val(data.DONGIA);
+
+					 $.get("admin/mon/them",function(datasua){
+				    	     // alert(data.MALOAI);
+				    	 select = document.getElementById('selectMonSua');
+				    	 $('#selectMonSua').html('');
+				    	     // console.log(data);  
+						for (var i in datasua){
+							// console.log(data[i].MALOAI);
+							// console.log(data[i].TENLOAI);
+							var opt = document.createElement('option');
+							// selected
+							if (data.MALOAI == datasua[i].MALOAI) {
+								opt.selected = datasua[i].MALOAI;
+							}
+							opt.value = datasua[i].MALOAI;
+							opt.innerHTML = datasua[i].TENLOAI;
+							select.append(opt);		
+						}
+				    });
+
+		    		$('#myModalSua').modal('show');
 		    	});
 
 		});
@@ -239,7 +398,7 @@
 
 
 
-	</script>	
+	</script>		
 
 
 	
