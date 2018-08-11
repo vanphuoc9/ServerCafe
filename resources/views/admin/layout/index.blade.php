@@ -89,6 +89,28 @@
 		  }
 		}
 	</script>
+		
+		<!-- chống đọc trộm code -->
+	  <script>
+        $(document).bind("contextmenu",function(e){
+          e.preventDefault();
+        });
+        // We also check for a text selection if ctrl/command are pressed along w/certain keys
+        $(document).keydown(function(ev) {
+           // capture the event for a variety of browsers
+           ev = ev || window.event;
+           // catpure the keyCode for a variety of browsers
+           kc = ev.keyCode || ev.which;
+           // check to see that either ctrl or command are being pressed along w/any other keys
+           if((ev.ctrlKey || ev.metaKey) && kc) {
+               // these are the naughty keys in question. 'x', 'c', and 'c'
+               // (some browsers return a key code, some return an ASCII value)
+               if(kc == 99 || kc == 67 || kc == 88) {
+                      return false;
+               }
+           }
+        });
+    </script>
 
 
 	  <!--  chèn đoạn script  -->

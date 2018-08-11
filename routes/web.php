@@ -22,6 +22,7 @@ Route::get('/', function () {
 // Route::get('loaimon',function(){
 // 	return view('admin/loaimon/danhsach');
 // });
+// test pdf
 
 
 // group admin
@@ -61,5 +62,10 @@ Route::group(['prefix'=>'admin'],function(){
 		// xóa
 		Route::get('xoa/{id}','MonController@getXoa');
 
+		Route::get('pdf','PDFController@getPDF');
+
 	});
+
+
+	
 });
