@@ -23,8 +23,8 @@
 								Quản lý
 							</a>
 							<ul class="collapse list-unstyled" id="home">
-								 <li><a href="admin/loaimon/danhsach">Danh sách loại món</a></li>
-	                            <li><a href="admin/mon/danhsach">Danh sách món</a></li>
+								 <li><a href="admin/loaisanpham/danhsach">Loại sản phẩm</a></li>
+	                            <li><a href="admin/user/danhsach">Người dùng</a></li>
 	                            <li><a href="#">Home 3</a></li>
 							</ul>
 						</li>

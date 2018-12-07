@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LoaiMon extends Model
+class LoaiSanPham extends Model
 {
-    //
+        //
     protected $table = "loaisanpham";
 
     protected $primaryKey = "MALOAISP";

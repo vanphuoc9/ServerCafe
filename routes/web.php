@@ -30,41 +30,58 @@ Route::group(['prefix'=>'admin'],function(){
 
 
 	//// LOAI MON
-	Route::group(['prefix'=>'loaimon'],function(){
+	Route::group(['prefix'=>'loaisanpham'],function(){
 		/// danh sach
-		Route::get('danhsach','LoaiMonController@getDanhSach');
+		Route::get('danhsach','LoaiSanPhamController@getDanhSach');
 		// // post them
-		Route::post('them','LoaiMonController@postThem');
+		Route::post('them','LoaiSanPhamController@postThem');
 		//sửa
-		Route::get('sua/{id}','LoaiMonController@getSua');
-		Route::post('sua/{id}','LoaiMonController@postSua');
+		Route::get('sua/{id}','LoaiSanPhamController@getSua');
+		Route::post('sua/{id}','LoaiSanPhamController@postSua');
 		// xóa
-		Route::get('xoa/{id}','LoaiMonController@getXoa');
+		Route::get('xoa/{id}','LoaiSanPhamController@getXoa');
 
 	});
 
-	//// MON
-	Route::group(['prefix'=>'mon'],function(){
-		/// danh sach
-		Route::get('danhsach','MonController@getDanhSach');
-
-		// // // post them
-		Route::get('them','MonController@getThem');
-		Route::post('them','MonController@postThem');
-
-		// // // // post sửa
-
-		Route::get('sua/{id}','MonController@getSua');
-		Route::post('sua/{id}','MonController@postSua');
-
-
-
+	 /// User
+    Route::group(['prefix'=>'user'],function(){
+        // Gọi tới Controller ==> goi hàm getDanhSach==> hiện thị view
+        Route::get('danhsach','UserController@getDanhSach');
+        // // post them
+		Route::post('them','UserController@postThem');
+		//sửa
+		Route::get('sua/{id}','UserController@getSua');
+		Route::post('sua/{id}','UserController@postSua');
 		// xóa
-		Route::get('xoa/{id}','MonController@getXoa');
+		Route::get('xoa/{id}','UserController@getXoa');
+     
+  
+    });
 
-		Route::get('pdf','PDFController@getPDF');
+	// //// MON
+	// Route::group(['prefix'=>'mon'],function(){
+	// 	/// danh sach
+	// 	Route::get('danhsach','MonController@getDanhSach');
 
-	});
+	// 	// // // post them
+	// 	Route::get('them','MonController@getThem');
+	// 	Route::post('them','MonController@postThem');
+
+	// 	// // // // post sửa
+
+	// 	Route::get('sua/{id}','MonController@getSua');
+	// 	Route::post('sua/{id}','MonController@postSua');
+
+
+
+	// 	// xóa
+	// 	Route::get('xoa/{id}','MonController@getXoa');
+
+	// 	Route::get('pdf','PDFController@getPDF');
+
+	// });
+
+	
 
 
 	

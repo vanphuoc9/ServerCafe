@@ -1,0 +1,28 @@
+body{
+	background-size: 100%;
+	margin: 0;
+	background-image: url('k.jpg');
+	background-repeat:no-repeat;
+   	background-size:cover;
+   	color: #fff;
+	padding-bottom: 100px;
+	padding-top: 300px; 
+}
+
+.header{
+	/* border: 1px solid; */
+	text-align: center;
+}
+.col1{
+	border-right: 2px solid;
+	/* margin-top: 5px; */
+	padding: 10px;
+}
+
+.header-col{
+	/* border:  1px solid; */
+	text-align: center;
+}
+.col-left{
+	text-align: center;
+}

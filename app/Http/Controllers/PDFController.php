@@ -15,8 +15,9 @@ class PDFController extends Controller
     public function getPDF(){
     	$mon = Mon::all();
     	$loaimon = Mon::all();
-    	$pdf = PDF::loadView('admin.pdf.customer',['mon'=>$mon]);
-    	return $pdf->stream('customer.pdf');
+    	$pdf = PDF::loadView('admin.pdf.customer')->setPaper([0, 0, 850, 950], 'landscape');
+    	
+    	return $pdf->download('customer.pdf');
 
     }
 }
